@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pioneer Bank</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="loging-area">
+        <h1 class="text-center">Welcome to our bank.</h1>
+        <div class="submit-area">
+            <h4>Login</h4><br>
+            <input type="text" name="" class="form-control" placeholder="Email"><br>
+            <input type="password" name="" class="form-control" placeholder="Password"><br>
+            <button class="btn btn-success" id="login">Enter</button>
+        </div>
+    </div>
+    <div id="transaction">
+        <div class="row">
+            <div class="col-md-4 ">
+                <div class="depo desin">
+                    <h5>Deposit</h5>
+                    <h2>$<span id="currentDepo">00</span></h2>
+                </div>
+            </div>
+            <div class="col-md-4 ">
+                <div class="with desin">
+                    <h5>Withdraw</h5>
+                    <h2>$<span id="currentwith">00</span></h2>
+                </div>
+            </div>
+            <div class="col-md-4 ">
+                <div class="bal desin">
+                    <h5>Balance</h5>
+                    <h2>$<span id="total">00</span></h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="submit-area">
+                    <h4>Deposit</h4>
+                    <input type="number" name="" class="form-control" placeholder="$ amount you want to deposit" id="depoAmount"><br>
+                    <button class="btn btn-success" id="addDepo">Deposit</button>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="submit-area">
+                    <h4>Withdraw</h4>
+                    <input type="number" name="" class="form-control" placeholder="$ amount you want to withdraw" id="withAmount"><br>
+                    <button class="btn btn-success" id="addwith">Withdraw</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <h6>Just for fun. It's not for fishing</h6>
+    </footer>
+    <script>
+        //login button event handler
+        let log =document.getElementById("login").addEventListener("click",function(){
+            let loginArea=document.getElementById("loging-area");
+            loginArea.style.display="none"
+            const transaction=document.getElementById("transaction");
+            transaction.style.display='block';
+        })
+        //deposit button event handler
+        const depo=document.getElementById('addDepo').addEventListener('click',function(){
+            const depoNumber=addNumber("depoAmount");
+            calculation("currentDepo",depoNumber)
+            calculation("total",depoNumber)
+            document.getElementById('depoAmount').value="";
+        })
+        const wig=document.getElementById('addwith').addEventListener('click',function(){
+            const withdrawNumber=addNumber("withAmount");
+            calculation("currentwith",withdrawNumber)
+            calMines("total",withdrawNumber)
+            document.getElementById("withAmount").value='';
+        })
+        function addNumber(id) {
+            const Amount=document.getElementById(id).value;
+            const Number=parseFloat(Amount);
+            return Number;
+        }
+        function calculation(id ,Number) {
+            const current=document.getElementById(id).innerText
+            const currentNumber=parseInt(current);
+            const total=Number+currentNumber;
+            document.getElementById(id).innerText=total
+            return total;
+        }
+        function calMines(id ,Number) {
+            const current=document.getElementById(id).innerText
+            const currentNumber=parseInt(current);
+            const total=currentNumber-Number;
+            document.getElementById(id).innerText=total
+            return total;
+        }
+    </script>
+</body>
+</html>

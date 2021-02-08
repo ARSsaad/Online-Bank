@@ -1,0 +1,32 @@
+body{
+    padding: 100px;
+}
+.submit-area{
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px  gray;
+    margin-top: 50px;
+    padding: 50px;
+}
+#transaction{
+    display: none;
+}
+.desin{
+    margin: 10px 20px;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+.depo{
+    background-color: rgb(105, 5, 177);
+}
+.with{
+    background-color: rgb(250, 134, 134);
+}
+.bal{
+    background-color: orange;
+}
+h6{
+    text-align-last: center;
+    margin-top: 20px;
+}
