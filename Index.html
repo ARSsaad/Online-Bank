@@ -70,15 +70,25 @@
         //deposit button event handler
         const depo=document.getElementById('addDepo').addEventListener('click',function(){
             const depoNumber=addNumber("depoAmount");
-            calculation("currentDepo",depoNumber)
-            calculation("total",depoNumber)
-            document.getElementById('depoAmount').value="";
+            if (depoNumber<0) {
+                alert ("Deposit can't be negative!!!!")
+            }
+            else{               
+                calculation("currentDepo",depoNumber)
+                calculation("total",depoNumber)
+                document.getElementById('depoAmount').value="";
+            }
         })
         const wig=document.getElementById('addwith').addEventListener('click',function(){
             const withdrawNumber=addNumber("withAmount");
-            calculation("currentwith",withdrawNumber)
-            calMines("total",withdrawNumber)
-            document.getElementById("withAmount").value='';
+            if (withdrawNumber<0) {
+                alert("Withdraw can't be negative!!!!")
+            }
+            else{               
+                calculation("currentwith",withdrawNumber)
+                calMines("total",withdrawNumber)
+                document.getElementById("withAmount").value='';
+            }
         })
         function addNumber(id) {
             const Amount=document.getElementById(id).value;
